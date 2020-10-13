@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://kit.fontawesome.com/44222469aa.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="src/styles.css" />
+    <link rel="stylesheet" href="src/index.js" />
+    <title>Weather App</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="card bg-dark text-black" style="width: 50rem" id="card-outer">
+                <img class="card-img" src="src/sky.jpg" style="height: 40rem" alt="Card image" />
+                <div class="card-img-overlay">
+                    <h5 class="card-title" id="weather-forecast">
+                        5 Days Weather Forecast
+                    </h5>
+                    <hr />
+
+                    <div class="row">
+                        <div class="col-6">
+                            <div class=class="card-img-overlay" style="width: 18rem" id="card1">
+                                <div class="card-body">
+                                    <form id="search-form">
+                                        <button type="button" id="search-clocation">Search current location</button>
+                                        <i class="fa fa-location-arrow" style="color:#007bff"></i>
+                                        <hr>
+
+                                        <input type="text" placeholder="Type a city" id="searchinput" autocomplete="off"
+                                            autofocus="on" />
+                                        <br />
+                                        <button type="submit" id="search-ccity" />Search City</button>
+                                    </form>
+                                    <hr />
+                                    <h2 class="card-title mb-2" id="current-city"> </h2>
+                                    <p>
+                                        <span id="date"></span>
+                                    </p>
+                                    <hr />
+                                    <p id="whatWeather">Search for a city</p>
+                                    <p id="whatEmoji"></p>
+                                    <h4 class="card-text" id="tempNumber"></h4> <a href="" id="celsius">°C</a> | <a
+                                        href="" id="fahrenheit">°F </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="card-img-overlay" style="width: 18rem" id="card2">
+                                <div class="card-body">
+                                    <p id="feelsLike">Feels Like:</p>
+                                    <p id="humidity">Humidity:</p>
+                                    <p id="windSpeed"> Wind:</p>
+                                </div>
+                                <hr>
+
+                                <div class="row">
+                                    <div class="col-6">
+                                        <p class="prediction" id="predDay1"> </p>
+                                        <p class="forecastDescription" id="tmrwTemp"> <br /> </p><span
+                                            id="emojiForecast1">️</span>
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="prediction" id="predDay2"> ️</p>
+                                        <p class="forecastDescription" id="tmrwTemp2"> <br /></p> <span
+                                            id="emojiForecast2"></span>
+                                    </div>
+                                    <div class="col-6">
+                                        <hr>
+
+                                        <p class="prediction" id="predDay3"> </p>
+                                        <p class="forecastDescription" id="tmrwTemp3"> <br /> </p><span
+                                            id="emojiForecast3">️</span>
+                                    </div>
+                                    <div class="col-6">
+                                        <hr>
+                                        <p class="prediction" id="predDay4"> </p>
+                                        <p class="forecastDescription" id="tmrwTemp4"> <br /> </p><span
+                                            id="emojiForecast4">️️</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
