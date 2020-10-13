@@ -177,7 +177,7 @@ h1 {
 
 #gitlink {
   text-align: center;
-  margin: 0 auto;
+  margin: 10px auto;
   display: block;
   background: transparent;
   font-family: "Montserrat", sans-serif;
