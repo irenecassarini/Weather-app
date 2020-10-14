@@ -71,7 +71,7 @@ search("New York");
 
 function showTemperature(response) {
   let temperature = Math.round(response.data.main.temp);
-  console.log(response.data);
+ 
 
   document.querySelector("#current-city").innerHTML = response.data.name;
 
@@ -106,7 +106,7 @@ function showTemperature(response) {
 
 // show Forecast TOMORROW
 function showForecast(response) {
-  console.log(response.data);
+
   let tomorrow = days[now.getDay() + 1];
   let day2 = days[now.getDay() + 2];
   let day3 = days[now.getDay() + 3];
