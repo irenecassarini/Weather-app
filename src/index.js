@@ -116,14 +116,14 @@ function showForecast(response) {
   let tomorrow = days[now.getDay() + 1];
   let day2 = days[now.getDay() + 2];
   let day3 = days[now.getDay() + 3];
-  let day4 = days[now.getDay() + 4];
+  let day4 = days[0];
   console.log(day2);
   console.log(day3);
   console.log(day4);
   console.log(now.getDay());
 
   // quando è Mercoledì
-  if (now.getDay() >= 3) {
+  if (now.getDay() > 3) {
     let newDay = (days.length - [now.getDay()] );
     console.log(newDay);
     day3 = days[newDay+2];

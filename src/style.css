@@ -1,6 +1,6 @@
 body {
   background-repeat: no-repeat;
-  background-size: 100%;
+
   font-family: "Montserrat", sans-serif;
 }
 
@@ -12,6 +12,7 @@ h1 {
 .card {
   color: black;
 }
+
 .card-title {
   text-align: center;
 }
@@ -38,10 +39,15 @@ h1 {
   text-transform: capitalize;
 }
 
-#card-outer {
-  color: black;
+.card-img {
   border: 2px #4596fb solid;
+  height: 600px;
+  width: 800px;
+}
+#card-outer {
+  border: none;
   margin: 0 auto;
+  max-width: 800px;
 }
 
 #btn1 {
@@ -183,7 +189,7 @@ h1 {
 
 #gitlink {
   text-align: center;
-  margin: 10px auto;
+  margin: 0 auto;
   display: block;
   background: transparent;
   font-family: "Montserrat", sans-serif;
