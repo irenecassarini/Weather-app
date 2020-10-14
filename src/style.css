@@ -29,7 +29,10 @@ h1 {
   color: #007bff;
   text-shadow: 1px 0px white;
 }
-
+.weather-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+}
 .forecastDescription {
   text-transform: capitalize;
   font-style: italic;
@@ -48,10 +51,6 @@ h1 {
   border: none;
   margin: 0 auto;
   max-width: 800px;
-}
-.weather-wrapper {
-  max-width: 800px;
-  margin: 0 auto;
 }
 
 #btn1 {
