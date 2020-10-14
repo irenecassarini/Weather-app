@@ -40,14 +40,14 @@ h1 {
 
 #whatIcon {
   padding: 0;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin-top: 2px;
+  margin-bottom: 2px;
 }
 
 #whatWeather {
   text-transform: capitalize;
-  margin-top: 0;
-  margin-bottom: 0;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 .card-img {
