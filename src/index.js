@@ -122,29 +122,15 @@ function showForecast(response) {
   console.log(day4);
   console.log(now.getDay());
 
-  // quando è Giovedì
-  if (now.getDay() === 4) {
-    day3 = "Sunday";
-    day4 = "Monday";
+  // quando è Mercoledì
+  if (now.getDay() >= 3) {
+    let newDay = (days.length - [now.getDay()]);
+    console.log(newDay);
+    day3 = days[newDay];
+    day4 = days[newDay + 1];
+
   }
-  // quando è Venerdì
-  if (now.getDay() === 5) {
-    day2 = "Sunday";
-    day3 = "Monday";
-    day4 = "Tuesday";
-  }
-  // quando è Sabato
-  if (now.getDay() === 6) {
-    day2 = "Monday";
-    day3 = "Tuesday";
-    day4 = "Wednesday";
-  }
-  // quando è Domenica
-  if (now.getDay() === 7) {
-    day2 = "Tuesday";
-    day3 = "Wednesday";
-    day4 = "Thursday";
-  }
+
   // TOMORROW
   let day1 = document.querySelector("#predDay1");
   day1.innerHTML = `${tomorrow}`;
