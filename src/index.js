@@ -95,16 +95,10 @@ function showTemperature(response) {
   let windSpeedRounded = Math.round(response.data.wind.speed * 3.6);
   windSpeed.innerHTML = `Wind Speed: ${windSpeedRounded} km/h`;
 
-  let emoji = document.querySelector("#whatEmoji");
-  if (response.data.weather[0].main === "Clouds") {
-    emoji.innerHTML = `☁️`;
-  } else {
-    if (response.data.weather[0].main === "Rain") {
-      emoji.innerHTML = `🌧`;
-    } else {
-      emoji.innerHTML = ` ☀️ `;
-    }
-  }
+
+    let iconElement = document.querySelector("#whatIcon");
+    iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+  
 
   celsiusTemp = temperature;
   feelsLikeTemperature = feelsLikeTemp;
