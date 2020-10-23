@@ -201,16 +201,16 @@ function showForecast(response) {
 }
 
 // conversion F° - C°
-function cToFconversion(event) {
+function changeTempF(event) {
   event.preventDefault();
-  document.querySelector("#tempNumber").change.innerHTML = `${Math.round((celsiusTemp * 9) / 5 + 32)} °F`;
+  document.querySelector("#tempNumber").innerHTML = `${Math.round((celsiusTemp * 9) / 5 + 32)} °F`;
   document.querySelector("#feelsLike").innerHTML = `Feels like: ${Math.round(
     (feelsLikeTemperature * 9) / 5 + 32
   )} °F`;
 }
 
 let temperatureF = document.querySelector("#fahrenheit");
-temperatureF.addEventListener("click", cToFconversion);
+temperatureF.addEventListener("click", changeTempF);
 
 function ftocconversion(event) {
   event.preventDefault();
@@ -222,4 +222,3 @@ function ftocconversion(event) {
 
 let temperatureC = document.querySelector("#celsius");
 temperatureC.addEventListener("click", ftocconversion);
-
