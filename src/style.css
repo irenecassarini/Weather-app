@@ -114,6 +114,7 @@ h1 {
 #weather-forecast {
   font-size: 25px;
   text-align: center;
+  /* color: linear-gradient(-225deg, #d4ffec 10%, #57f2cc 48%, #4596fb 100%); */
   border: solid 1px #007bff;
   box-shadow: 1px 1px 4px 1px #007bff;
   width: 320px;
