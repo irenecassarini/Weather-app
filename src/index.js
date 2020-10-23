@@ -26,8 +26,7 @@ if (hour < 10) {
 let showTime = document.querySelector("#date");
 showTime.innerHTML = `${day}, ${hour}:${minutes} <small> (GMT+2) </small>`;
 
-// GEO-CURRENT POSITION
-
+// Current position from GPS
 let button = document.querySelector("#search-clocation");
 button.addEventListener("click", getCurrentPosition);
 
@@ -45,7 +44,7 @@ function showPosition(position) {
   axios.get(apiForecast).then(showForecast);
 }
 
-// SEARCH CITY DEFAULT
+// Default city
 function search(city) {
   let apiUrl2 = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&precipitation=yes`;
   let apiForecast = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&cnt=45&appid=${apiKey}&units=metric`;
@@ -53,7 +52,7 @@ function search(city) {
   axios.get(apiForecast).then(showForecast);
 }
 
-// CITY TYPED IN FROM INPUT FORM
+// Sumbit from input form
 let searchCity = document.querySelector("#search-ccity");
 searchCity.addEventListener("click", handleSubmit);
 
@@ -67,7 +66,7 @@ function handleSubmit(event) {
 
 search("New York");
 
-//Show temperature Function
+//Show temperature
 function showTemperature(response) {
   document.querySelector("#current-city").innerHTML = response.data.name;
 
@@ -122,7 +121,7 @@ ${Math.round(response.data.list[12].main.temp_max)}°C `;
 <br />
   ${Math.round(response.data.list[39].main.temp)} °C`;
 
-  // Weather emojis
+// Weather emojis
   let emoji = document.querySelector("#emojiForecast1");
   if (response.data.list[7].weather[0].main === "Clouds") {
     emoji.innerHTML = `☁️ `;
