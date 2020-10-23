@@ -90,11 +90,23 @@ function showTemperature(response) {
   document.querySelector("#windSpeed").innerHTML = `Wind Speed: ${windSpeedRounded} km/h`;
 
 
-  let iconElement = document.querySelector("#whatIcon");
-  iconElement.setAttribute("src", `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+
+  //iconElement.setAttribute("src", `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 
   celsiusTemp = Math.round(response.data.main.temp);
   feelsLikeTemperature = Math.round(response.data.main.feels_like);;
+
+  let iconElement = document.querySelector("#whatIcon");
+  if (response.data.list[7].weather[0].main === "Clouds") {
+    iconElement.innerHTML = `https://www.weatherbit.io/static/img/icons/c04d.png`;
+  } else {
+    if (response.data.list[7].weather[0].main === "Rain") {
+      iconElement.innerHTML = `https://www.weatherbit.io/static/img/icons/s06d.png`;
+    } else {
+      iconElement.innerHTML = `https://www.weatherbit.io/static/img/icons/c01d.png `;
+    }
+  }
+
 }
 
 // Forecast
