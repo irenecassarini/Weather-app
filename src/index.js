@@ -212,7 +212,7 @@ function cToFconversion(event) {
 let temperatureF = document.querySelector("#fahrenheit");
 temperatureF.addEventListener("click", cToFconversion);
 
-function FtoCconversion(event) {
+function ftocconversion(event) {
   event.preventDefault();
   document.querySelector("#tempNumber").innerHTML = `${celsiusTemp} °C`;
   document.querySelector(
@@ -221,5 +221,5 @@ function FtoCconversion(event) {
 }
 
 let temperatureC = document.querySelector("#celsius");
-temperatureC.addEventListener("click", FtoCconversion);
+temperatureC.addEventListener("click", ftocconversion);
 
