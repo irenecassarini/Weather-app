@@ -2,7 +2,6 @@ var apiKey = "031369b53f5190f2eabd8e78f7c7d4f4";
 var celsiusTemp = "";
 var feelsLikeTemperature = "";
 let now = new Date();
-
 var days = [
   "Sunday",
   "Monday",
@@ -19,6 +18,9 @@ let minutes = now.getMinutes();
 
 if (minutes < 10) {
   minutes = "0" + minutes;
+}
+if (hour < 10) {
+  hour = "0" + hour;
 }
 
 let showTime = document.querySelector("#date");
@@ -117,11 +119,12 @@ function showForecast(response) {
   console.log(now.getDay());
 
   // quando è Mercoledì
-  if (now.getDay() > 3) {
+  if (now.getDay() > 4) {
     let newDay = (days.length - [now.getDay()] );
     console.log(newDay);
-    day3 = days[newDay+2];
-    day4 = days[newDay-4];
+    day2 = days[newDay-2];
+    day3 = days[newDay-1];
+    day4 = days[newDay];
   }
 
   // TOMORROW
@@ -224,3 +227,4 @@ function changeTempC(event) {
 
 let temperatureC = document.querySelector("#celsius");
 temperatureC.addEventListener("click", changeTempC);
+
