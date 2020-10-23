@@ -40,8 +40,6 @@ function showPosition(position) {
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric&precipitation=yes`;
-  //let searchCity = document.querySelector("#current-city");
-  //searchCity.innerHTML = `${lat}`;
   axios.get(apiUrl).then(showTemperature);
 
   let apiForecast = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
@@ -73,7 +71,6 @@ search("New York");
 //Show temperature Function
 function showTemperature(response) {
   let temperature = Math.round(response.data.main.temp);
- 
 
   document.querySelector("#current-city").innerHTML = response.data.name;
 
