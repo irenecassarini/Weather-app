@@ -145,6 +145,7 @@ h1 {
 
 .forecastDescription {
   font-size: 14px;
+  margin-bottom: 10px;
 }
 
 #gitlink {
@@ -153,4 +154,11 @@ h1 {
   display: block;
   background: transparent;
   font-family: "Montserrat", sans-serif;
+}
+
+#emojiForecast1,
+#emojiForecast2,
+#emojiForecast3,
+#emojiForecast4 {
+  font-size: 25px;
 }
