@@ -203,10 +203,8 @@ function showForecast(response) {
 // conversion F° - C°
 function cToFconversion(event) {
   event.preventDefault();
-  let change = document.querySelector("#tempNumber");
-  change.innerHTML = `${Math.round((celsiusTemp * 9) / 5 + 32)} °F`;
-  let change2 = document.querySelector("#feelsLike");
-  change2.innerHTML = `Feels like: ${Math.round(
+  document.querySelector("#tempNumber").change.innerHTML = `${Math.round((celsiusTemp * 9) / 5 + 32)} °F`;
+  document.querySelector("#feelsLike").innerHTML = `Feels like: ${Math.round(
     (feelsLikeTemperature * 9) / 5 + 32
   )} °F`;
 }
