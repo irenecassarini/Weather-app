@@ -103,7 +103,7 @@ function showForecast(response) {
   document.querySelector("#tmrwTemp").innerHTML = `${
     response.data.list[7].weather[0].description} 
 <br /> 
-${Math.round(response.data.list[7].main.temp_max)} °C`;
+${Math.round(response.data.list[7].main.temp_max)}°C`;
 
 document.querySelector("#tmrwTemp2").innerHTML = `${response.data.list[12].weather[0].description} 
 <br />
@@ -113,13 +113,13 @@ ${Math.round(response.data.list[12].main.temp_max)}°C `;
     response.data.list[31].weather[0].description
   }
 <br />
-  ${Math.round(response.data.list[31].main.temp)} °C`;
+  ${Math.round(response.data.list[31].main.temp)}°C`;
 
   document.querySelector("#tmrwTemp4").innerHTML = `${
     response.data.list[39].weather[0].description
   }
 <br />
-  ${Math.round(response.data.list[39].main.temp)} °C`;
+  ${Math.round(response.data.list[39].main.temp)}°C`;
 
 // Weather emojis
   let emoji = document.querySelector("#emojiForecast1");
