@@ -55,7 +55,7 @@ function search(city) {
   axios.get(apiUrl2).then(showTemperature);
   axios.get(apiForecast).then(showForecast);
 }
-//////////////////////////////
+
 // CITY TYPED IN FROM INPUT FORM
 let searchCity = document.querySelector("#search-ccity");
 searchCity.addEventListener("click", handleSubmit);
@@ -69,8 +69,8 @@ function handleSubmit(event) {
 }
 
 search("New York");
-//Show temperature Function
 
+//Show temperature Function
 function showTemperature(response) {
   let temperature = Math.round(response.data.main.temp);
  
@@ -106,7 +106,7 @@ function showTemperature(response) {
   feelsLikeTemperature = feelsLikeTemp;
 }
 
-// show Forecast TOMORROW
+// Forecast function
 function showForecast(response) {
 
   let tomorrow = days[now.getDay() + 1];
@@ -204,7 +204,7 @@ function showForecast(response) {
 }
 
 // conversion F° - C°
-function changeTempF(event) {
+function cToFconversion(event) {
   event.preventDefault();
   let change = document.querySelector("#tempNumber");
   change.innerHTML = `${Math.round((celsiusTemp * 9) / 5 + 32)} °F`;
@@ -215,9 +215,9 @@ function changeTempF(event) {
 }
 
 let temperatureF = document.querySelector("#fahrenheit");
-temperatureF.addEventListener("click", changeTempF);
+temperatureF.addEventListener("click", cToFconversion);
 
-function changeTempC(event) {
+function FtoCconversion(event) {
   event.preventDefault();
   document.querySelector("#tempNumber").innerHTML = `${celsiusTemp} °C`;
   document.querySelector(
@@ -226,5 +226,5 @@ function changeTempC(event) {
 }
 
 let temperatureC = document.querySelector("#celsius");
-temperatureC.addEventListener("click", changeTempC);
+temperatureC.addEventListener("click", FtoCconversion);
 
