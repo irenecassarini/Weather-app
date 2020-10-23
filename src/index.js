@@ -26,7 +26,6 @@ if (hour < 10) {
 let showTime = document.querySelector("#date");
 showTime.innerHTML = `${day}, ${hour}:${minutes} <small> (GMT+2) </small>`;
 
-//////////////////////////////
 // GEO-CURRENT POSITION
 
 let button = document.querySelector("#search-clocation");
@@ -70,8 +69,6 @@ search("New York");
 
 //Show temperature Function
 function showTemperature(response) {
-  let temperature = Math.round(response.data.main.temp);
-
   document.querySelector("#current-city").innerHTML = response.data.name;
 
   document.querySelector("#tempNumber").innerHTML = `${Math.round(
@@ -81,86 +78,51 @@ function showTemperature(response) {
   document.querySelector("#whatWeather").innerHTML =
     response.data.weather[0].description;
 
-  let feelsLikeTemp = Math.round(response.data.main.feels_like);
   document.querySelector("#feelsLike").innerHTML = `Feels like: ${Math.round(
     response.data.main.feels_like
   )} °C`;
 
   let datahumidity = response.data.main.humidity;
-  let humidity = document.querySelector("#humidity");
-  humidity.innerHTML = `Humidity: ${datahumidity} %`;
+  document.querySelector("#humidity").innerHTML = `Humidity: ${datahumidity} %`;
 
-  let windSpeed = document.querySelector("#windSpeed");
-  let windSpeedRounded = Math.round(response.data.wind.speed * 3.6);
-  windSpeed.innerHTML = `Wind Speed: ${windSpeedRounded} km/h`;
-
-
-    let iconElement = document.querySelector("#whatIcon");
-    iconElement.setAttribute("src", `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
   
+  let windSpeedRounded = Math.round(response.data.wind.speed * 3.6);
+  document.querySelector("#windSpeed").innerHTML = `Wind Speed: ${windSpeedRounded} km/h`;
 
-  celsiusTemp = temperature;
-  feelsLikeTemperature = feelsLikeTemp;
+
+  let iconElement = document.querySelector("#whatIcon");
+  iconElement.setAttribute("src", `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+
+  celsiusTemp = Math.round(response.data.main.temp);
+  feelsLikeTemperature = Math.round(response.data.main.feels_like);;
 }
 
-// Forecast function
+// Forecast
 function showForecast(response) {
-
-  let tomorrow = days[now.getDay() + 1];
-  let day2 = days[now.getDay() + 2];
-  let day3 = days[now.getDay() + 3];
-  let day4 = days[0];
-  console.log(day2);
-  console.log(day3);
-  console.log(day4);
-  console.log(now.getDay());
-
-  // quando è Mercoledì
-  if (now.getDay() > 4) {
-    let newDay = (days.length - [now.getDay()] );
-    console.log(newDay);
-    day2 = days[newDay-2];
-    day3 = days[newDay-1];
-    day4 = days[newDay];
-  }
-
-  // TOMORROW
-  let day1 = document.querySelector("#predDay1");
-  day1.innerHTML = `${tomorrow}`;
   document.querySelector("#tmrwTemp").innerHTML = `${
-    response.data.list[7].weather[0].description
-  } 
-  <br />${Math.round(response.data.list[7].main.temp)} °C`;
+    response.data.list[7].weather[0].description} 
+<br /> ${Math.round(response.data.list[7].main.temp)} °C`;
 
-  // DAY 2
-  let day2forecast = document.querySelector("#predDay2");
-  day2forecast.innerHTML = `${day2}`;
-
-  let tempday2 = document.querySelector("#tmrwTemp2");
-  tempday2.innerHTML = `${response.data.list[12].weather[0].description}, 
+document.querySelector("#tmrwTemp2").innerHTML = `${response.data.list[12].weather[0].description}, 
 <br />
   ${Math.round(response.data.list[12].main.temp)} °C`;
 
-  // DAY 3
-  document.querySelector("#predDay3").innerHTML = `${day3}`;
   document.querySelector("#tmrwTemp3").innerHTML = `${
     response.data.list[31].weather[0].description
   }, 
 <br />
   ${Math.round(response.data.list[31].main.temp)} °C`;
 
-  // DAY 4
-  document.querySelector("#predDay4").innerHTML = `${day4}`;
   document.querySelector("#tmrwTemp4").innerHTML = `${
     response.data.list[39].weather[0].description
   }, 
 <br />
   ${Math.round(response.data.list[39].main.temp)} °C`;
 
-  // EMOJIS FORECAST
+  // Weather emojis
   let emoji = document.querySelector("#emojiForecast1");
   if (response.data.list[7].weather[0].main === "Clouds") {
-    emoji.innerHTML = `☁️`;
+    emoji.innerHTML = `☁️ `;
   } else {
     if (response.data.list[7].weather[0].main === "Rain") {
       emoji.innerHTML = `🌧`;
@@ -200,7 +162,7 @@ function showForecast(response) {
   }
 }
 
-// conversion F° - C°
+// Unit conversion F° - C°
 function changeTempF(event) {
   event.preventDefault();
   document.querySelector("#tempNumber").innerHTML = `${Math.round((celsiusTemp * 9) / 5 + 32)} °F`;
@@ -209,9 +171,6 @@ function changeTempF(event) {
   )} °F`;
 }
 
-let temperatureF = document.querySelector("#fahrenheit");
-temperatureF.addEventListener("click", changeTempF);
-
 function ftocconversion(event) {
   event.preventDefault();
   document.querySelector("#tempNumber").innerHTML = `${celsiusTemp} °C`;
@@ -219,6 +178,40 @@ function ftocconversion(event) {
     "#feelsLike"
   ).innerHTML = `Feels like: ${feelsLikeTemperature} °C`;
 }
+
+// Days
+ if ((now.getDay() + 1) >= 7) {
+    let forth = document.querySelector("#predDay1");
+    forth.innerHTML = days[now.getDay() + 1 - 7];
+} else {
+    let first = document.querySelector("#predDay1");
+    first.innerHTML = days[now.getDay() + 1];
+}
+if ((now.getDay() + 2) >= 7) {
+    let forth = document.querySelector("#predDay2");
+    forth.innerHTML = days[now.getDay() + 2 - 7];
+} else {
+    let second = document.querySelector("#predDay2");
+    second.innerHTML = days[now.getDay() + 2];
+}
+if ((now.getDay() + 3) >= 7) {
+    let forth = document.querySelector("#predDay3");
+    forth.innerHTML = days[now.getDay() + 3 - 7];
+} else {
+    let third = document.querySelector("#predDay3");
+    third.innerHTML = days[now.getDay() + 3];
+}
+if ((now.getDay() + 4) >= 7) {
+    let forth = document.querySelector("#predDay4");
+    forth.innerHTML = days[now.getDay() + 4 - 7];
+} else {
+    let forth = document.querySelector("#predDay4");
+    forth.innerHTML = days[now.getDay() + 4];
+}
+
+// Event listeners
+let temperatureF = document.querySelector("#fahrenheit");
+temperatureF.addEventListener("click", changeTempF);
 
 let temperatureC = document.querySelector("#celsius");
 temperatureC.addEventListener("click", ftocconversion);
